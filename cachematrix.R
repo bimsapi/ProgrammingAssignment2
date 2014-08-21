@@ -32,3 +32,21 @@ cacheSolve <- function(x, ...) {
   x$setinverse(mat)
   mat
 }
+
+#simple method to test... we 
+testCacheSolve <- function(dim = 5) {
+  #random 5x5 matrix
+  mymat<-matrix(rnorm(dim*dim), ncol=dim)
+  m<-makeCacheMatrix(mymat)
+
+  #here's the inverse...
+  a<-cacheSolve(m)
+
+  #check for the caching...
+  b<-m$getinverse()
+
+  message(all.equal(a, b))
+
+  #a * mymat should be the identity matrix...
+  all.equal(mymat, mymat %*% (mymat %*% a))
+}
