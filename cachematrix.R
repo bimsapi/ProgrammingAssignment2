@@ -33,7 +33,7 @@ cacheSolve <- function(x, ...) {
   mat
 }
 
-#simple method to test... we 
+#simple method to test... 
 testCacheSolve <- function(dim = 5) {
   #random 5x5 matrix
   mymat<-matrix(rnorm(dim*dim), ncol=dim)
